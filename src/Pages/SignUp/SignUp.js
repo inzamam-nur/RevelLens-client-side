@@ -1,7 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Login/Login.css";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook, FaGithub } from "react-icons/fa";
 
 const SignUp = () => {
   return (
@@ -13,17 +12,14 @@ const SignUp = () => {
               <img
                 style={{ height: "500px" }}
                 className="m-auto"
-                src="https://i.ibb.co/g6CnJH6/tablet-login-concept-illustration-114360-7893-transformed.webp"
+                src="https://i.ibb.co/MfFyvh6/sign-up-concept-illustration-114360-7895-transformed.webp"
                 alt=""
               />
             </div>
             <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
               <form>
                 <div className="flex flex-row items-center justify-center lg:justify-start">
-                  <p className="text-lg mb-0 mr-4">Sign in with</p>
-                  <FcGoogle className="text-4xl mr-3 "></FcGoogle>
-                  <FaFacebook className="text-blue-600 text-4xl mr-3"></FaFacebook>
-                  <FaGithub className="text-4xl"></FaGithub>
+                  <p className="text-lg mb-0 mr-4">Sign up here</p>
                 </div>
 
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
@@ -68,20 +64,21 @@ const SignUp = () => {
                 </div>
 
                 <div className="text-center lg:text-left">
-                  <button
+                <Link to='/login'>  <button style={{backgroundColor:'rgb(91,228,168)'}}
                     type="button"
                     className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     Login
-                  </button>
+                  </button></Link>
                   <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                    Don't have an account?
-                    <a
-                      href="#!"
-                      className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                    Have an account?
+                    <Link
+                    style={{color:'rgb(91,228,168)'}}
+                      to="/login"
+                      className=" hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                     >
-                      Register
-                    </a>
+                      Login
+                    </Link>
                   </p>
                 </div>
               </form>

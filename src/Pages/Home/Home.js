@@ -12,7 +12,7 @@ const Home = () => {
       >
         <div className="hero-overlay bg-black opacity-25"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className=" text-white">
+          <div className=" text-white w-3/4 m-auto">
             <h1 className="mb-5 lg:text-5xl sm:text-3xl font-bold">
               Photography Is An Immediate Reaction, Drawing Is A Meditation
               Props.
