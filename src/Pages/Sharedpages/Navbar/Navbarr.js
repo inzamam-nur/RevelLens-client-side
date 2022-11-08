@@ -1,49 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../Assests/logo.png'
 const Navbarr = () => {
     return (
   
-      <div className="navbar bg-gray-100 rounded	">
+      <div className="navbar bg-gray-100 rounded pt-5 pb-5	">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-            <li><Link>Item 1</Link></li>
-            <li tabIndex={0}>
-              <Link className="justify-between">
-                Parent
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-              </Link>
-              <ul className="p-2">
-                <li><Link>Submenu 1</Link></li>
-                <li><Link>Submenu 2</Link></li>
-              </ul>
-            </li>
-            <li><Link>Item 3</Link></li>
+            <li><Link>Blog</Link></li>
+           
+            <li><Link>Faq</Link></li>
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+        <Link className=" normal-case text-xl p-0  "><img style={{height:'60px'}} src={logo} alt="" /></Link>
+        <Link className=" normal-case text-xl font-bold italic"><span >R</span ><span style={{color:'rgb(204,73,79)'}}>e</span><span style={{color:'rgb(207,35,143)'}}>v</span><span style={{color:'rgb(4,186,200)'}}>e</span><span style={{color:'rgb(120,189,65)'}}>l</span> 
+        L<span style={{color:'rgb(241,89,40)'}}>e</span><span style={{color:'rgb(207,35,143)'}}>n</span>s
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li><Link>Item 1</Link></li>
-          <li tabIndex={0}>
-            <Link>
-              Parent
-              <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-            </Link>
-            <ul className="p-2">
-              <li><Link>Submenu 1</Link></li>
-              <li><Link>Submenu 2</Link></li>
-            </ul>
-          </li>
-          <li><Link>Item 3</Link></li>
+          <li><Link>Blog</Link></li>
+      
+          <li><Link>Faq</Link></li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn">Get started</Link>
+        <Link to='/login' className="btn  lg:mr-4 ">Login</Link>
+        <Link to='/signup' className="btn ml-1">Signup</Link>
       </div>
     </div>
     );

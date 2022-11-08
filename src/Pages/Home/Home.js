@@ -2,9 +2,9 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mt-10">
       <div
-        className="hero lg:min-h-screen   "
+        className="hero lg:min-h-screen rounded  "
         style={{
           backgroundImage: `url("https://i.ibb.co/K9v46qr/hero-1.jpg")`,
           backgroundColor: "black",
@@ -47,7 +47,7 @@ const Home = () => {
               was shoot really high quality film, so I got into time-lapse
               photography - so that means when you shoot a flower.
             </p>
-            <div className="bg-amber-500 p-5 rounded center">
+            <div className="bg-gray-100 p-5 rounded center">
           <p className="py-6">
               Photography is like a moment, an instant. You need a half-second
               to get the photo. So it's good to capture people when they are
