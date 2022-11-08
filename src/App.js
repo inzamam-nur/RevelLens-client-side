@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-   <RouterProvider router={routes}></RouterProvider>
+   <div className='w-75 m-auto'><RouterProvider router={routes}></RouterProvider></div>
   )
 }
 
