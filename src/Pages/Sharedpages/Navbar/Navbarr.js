@@ -1,7 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assests/logo.png'
+import { AuthContext } from '../../../Context/Authprovider/Authprovider';
 const Navbarr = () => {
+  const {user,logout}=useContext(AuthContext)
+  const handleLogout=()=>{
+    logout()
+    .then(() => {})
+    .catch((e) => {});
+  }
     return (
   
       <div className="navbar bg-gray-100 rounded pt-5 pb-5	">
@@ -29,8 +38,40 @@ const Navbarr = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn  lg:mr-4 ">Login</Link>
-        <Link to='/signup' className="btn ml-1">Signup</Link>
+      {user?.photoURL? (
+            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+              <button>
+                {" "}
+                <img
+                  style={{ height: "30px" }}
+                  className="mr-5 mt-3 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </button>
+            </div>
+          ) : (
+            <>
+              <FaUserAlt className="mr-5 rounded-full"></FaUserAlt>
+            </>
+          )}
+          {user?.uid ? (
+            <>
+              <h2 className="mr-5">{user?.displayName}</h2>
+              <Link onClick={handleLogout} className="btn">
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn mr-5">
+                Login
+              </Link>
+              <Link to="/signup" className="btn">
+                SignUp
+              </Link>
+            </>
+          )}
       </div>
     </div>
     );
