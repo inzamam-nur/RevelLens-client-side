@@ -3,6 +3,8 @@ import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
+import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 
 export const routes=createBrowserRouter([
@@ -12,7 +14,8 @@ export const routes=createBrowserRouter([
         children:[
              {
                 path:'/',
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader:()=>fetch('http://localhost:5000/serviceslimit')
              },
              {
                 path:'/login',
@@ -26,6 +29,25 @@ export const routes=createBrowserRouter([
                 path:'/blog',
                 element:<Blog></Blog>
              },
+             {
+                path:'/services',
+                element:<Services></Services>,
+                loader:()=>fetch('http://localhost:5000/services')
+
+             },
+             {
+                path:'/services/:id',
+                element:<ServiceDetails></ServiceDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+
+
+             },
+             {
+               path:'/services',
+               element:<Services></Services>,
+               loader:()=>fetch('http://localhost:5000/services')
+
+            }
         ]
     }
 ])
