@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/Authprovider/Authprovider";
 import "../Login/Login.css";
 
 const SignUp = () => {
-  const {userCreateemailpass}=useContext(AuthContext)
+  const {userCreateemailpass,loading,setLoading}=useContext(AuthContext)
   const handleRegi = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,7 +25,12 @@ const SignUp = () => {
 
   };
   return (
+     
     <div className=" bg-gray-100 mt-5	">
+      {
+      loading && <button className="btn btn-square loading"></button>
+     }
+      
       <section className="h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
