@@ -23,6 +23,7 @@ const Navbarr = () => {
             <li><Link to='/blog'>Blog</Link></li>
             <li><Link to='/services'>Services</Link></li>
             <li><Link to='/addservice'>Add Service</Link></li>
+            <li><Link to='/myreview'>Myreview</Link></li>
 
            
             <li><Link>Faq</Link></li>
@@ -38,6 +39,8 @@ const Navbarr = () => {
           <li><Link to='/blog'>Blog</Link></li>
           <li><Link to='/services'>Services</Link></li>
           <li><Link to='/addservice'>Add Service</Link></li>
+          <li><Link to='/myreview'>Myreview</Link></li>
+
 
       
           <li><Link>Faq</Link></li>

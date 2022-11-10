@@ -1,15 +1,20 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Review from "../Review/Review";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceDetails = () => {
     const service=useLoaderData()
 
   return <div>
     <div className="card card-compact mt-10 mb-10  bg-base-100 shadow-xl">
-        <figure>
-          <img  src={service.image_url} alt="Shoes" />
-        </figure>
+        
+        <PhotoProvider>
+      <PhotoView src={service.image_url}>
+        <img src={service.image_url} alt="" />
+      </PhotoView>
+    </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title">{service.title}</h2>
           <p>

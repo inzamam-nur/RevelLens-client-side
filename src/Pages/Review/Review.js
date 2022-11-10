@@ -4,7 +4,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/Authprovider/Authprovider";
 const Review = () => {
-  const { _id, title, price } = useLoaderData();
+  const { _id, title, price,image_url} = useLoaderData();
   const { user } = useContext(AuthContext);
   const handleReview = (event) => {
     event.preventDefault();
@@ -16,8 +16,9 @@ const Review = () => {
       service: _id,
       serviceName: title,
       price,
+      service_img: image_url,
       customer: user?.displayName,
-      img:user?.photoURL,
+      img: user?.photoURL,
       email,
       message,
     };
@@ -60,66 +61,73 @@ const Review = () => {
         </div>
       </div>
 
-   {
-     user?.uid ? 
-     <>  <div class="flex items-center justify-center p-12">
-     <div class="mx-auto w-full max-w-[550px]">
-       <form onSubmit={handleReview}>
-         <div class="mb-5">
-           <label
-             for="email"
-             class="mb-3 block text-base font-medium text-[#07074D]"
-           >
-             Email Address
-           </label>
-           <input
-             type="email"
-             name="email"
-             id="email"
-             defaultValue={user?.email}
-             placeholder="example@domain.com"
-             readOnly
-             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-           />
-         </div>
+      {user?.uid ? (
+        <>
+          {" "}
+          <div class="flex items-center justify-center p-12">
+            <div class="mx-auto w-full max-w-[550px]">
+              <form onSubmit={handleReview}>
+                <div class="mb-5">
+                  <label
+                    for="email"
+                    class="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    defaultValue={user?.email}
+                    placeholder="example@domain.com"
+                    readOnly
+                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  />
+                </div>
 
-         <div class="mb-5">
-           <label
-             for="message"
-             class="mb-3 block text-base font-medium text-[#07074D]"
-           >
-             Message
-           </label>
-           <textarea
-             rows="4"
-             name="message"
-             id="message"
-             placeholder="Type your REview"
-             class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-           ></textarea>
-         </div>
-         <div>
-           <button class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
-             Submit
-           </button>
-         </div>
-       </form>
-     </div>
-   </div></>
-   :
-   <>
-   <div><div className="card w-full bg-neutral text-neutral-content">
-  <div className="card-body items-center text-center">
-    <p></p>
-    <h1  style={{color:'rgb(194,20,29)',fontSize:'30px'}}>Please Login To Add A review</h1>
-    <div className="card-actions justify-end">
-      <Link to='/login'><button className="btn btn-primary">Login</button></Link>
-    </div>
-  </div>
-</div></div>
-   </>
-
-   }
+                <div class="mb-5">
+                  <label
+                    for="message"
+                    class="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    rows="4"
+                    name="message"
+                    id="message"
+                    placeholder="Type your REview"
+                    class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  ></textarea>
+                </div>
+                <div>
+                  <button class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div>
+            <div className="card w-full bg-neutral text-neutral-content">
+              <div className="card-body items-center text-center">
+                <p></p>
+                <h1 style={{ color: "rgb(194,20,29)", fontSize: "30px" }}>
+                  Please Login To Add A review
+                </h1>
+                <div className="card-actions justify-end">
+                  <Link to="/login">
+                    <button className="btn btn-primary">Login</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
