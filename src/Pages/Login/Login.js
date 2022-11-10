@@ -13,9 +13,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const { setLoading,loading,providerLogin, emailpassSignin } = useContext(AuthContext);
+  const { providerLogin, emailpassSignin } = useContext(AuthContext);
   const [error, setError] = useState("");
-
+  
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -40,11 +40,7 @@ const Login = () => {
           },
           body: JSON.stringify(currentUser),
         })
-          .then((res) => {
-            res.json()
-            setLoading(false)
-
-          })
+          .then((res) => res.json())
           .then((data) => {
             console.log(data);
 
@@ -56,8 +52,6 @@ const Login = () => {
       .catch((e) => {
         console.error(e);
         setError(e.message);
-        setLoading(true)
-
       });
   };
   const googleProvider = new GoogleAuthProvider();
@@ -74,11 +68,7 @@ const Login = () => {
   };
 
   return (
-
     <div className=" bg-gray-100 mt-5	">
-     {
-      loading && <button className="btn btn-square loading"></button>
-     }
       <section className="h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">

@@ -18,6 +18,7 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setLoading(false)
       })
       .catch((e) => {
         console.error(e);
