@@ -72,7 +72,7 @@ useEffect(()=>{
           <h2>{review.serviceName}</h2>
           <img style={{height:'40px'}} className="rounded-full " src={review.img} alt="" />
           <h2>Reviewer: {review.customer}</h2>
-          <p>We are using cookies for no reason.</p>
+          <p>{review.message}</p>
         </div>
                   </>
                   :
