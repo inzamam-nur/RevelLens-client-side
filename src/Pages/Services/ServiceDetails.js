@@ -6,6 +6,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceDetails = () => {
     const service=useLoaderData()
+    
 
   return <div>
     <div className="card card-compact mt-10 mb-10  bg-base-100 shadow-xl">

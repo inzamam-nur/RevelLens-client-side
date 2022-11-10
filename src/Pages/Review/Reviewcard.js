@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Reviewcard = ({ handleDelete,review }) => {
   const {  serviceName, message, service_img, _id } = review;
@@ -9,6 +10,13 @@ const Reviewcard = ({ handleDelete,review }) => {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{serviceName}</h2>
+        <div style={{ color: "rgb(240,195,2)" }} className="flex text-xl">
+            <FaStar></FaStar>
+            <FaStar></FaStar>
+            <FaStar></FaStar>
+            <FaStar></FaStar>
+            <FaStarHalfAlt></FaStarHalfAlt>
+          </div>
         <p>{message}</p>
         <div className="card-actions">
           <div className="btn-group">
