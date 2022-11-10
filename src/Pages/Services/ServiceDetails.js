@@ -23,8 +23,8 @@ const ServiceDetails = () => {
           </p>
           <div className="grid grid-cols-6 gap-4">
           <div className="col-start-1 col-end-3 ">
-            <div>Rating : {service.rating.number}</div>
-            <div>Badge : {service.rating.badge}</div>
+            <div>Rating : {service.rating?.number}</div>
+            <div>Badge : {service.rating?.badge}</div>
           </div>
           <div className="col-end-7 col-span-2 ">
             <div>Provided : {service.total_service_provided}</div>

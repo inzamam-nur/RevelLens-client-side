@@ -26,8 +26,8 @@ const ServiceCard = ({service}) => {
           </p>
           <div className="grid grid-cols-6 gap-4">
           <div className="col-start-1 col-end-3 ">
-            <div>Rating : {rating.number}</div>
-            <div>Badge : {rating.badge}</div>
+            <div>Rating : {rating?.number}</div>
+            <div>Badge : {rating?.badge}</div>
           </div>
           <div className="col-end-7 col-span-2 ">
             <div>Provided : {total_service_provided}</div>

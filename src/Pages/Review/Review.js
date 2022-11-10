@@ -1,8 +1,7 @@
-import React from "react";
 import { useContext } from "react";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/Authprovider/Authprovider";
+import ReviewById from "./ReviewById";
 const Review = () => {
   const { _id, title, price,image_url} = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -34,12 +33,17 @@ const Review = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Order placed successfully");
+          alert("Review added successfully");
           form.reset();
         }
       })
       .catch((er) => console.error(er));
+
+
+
+     
   };
+
   return (
     <div>
       <h2>This review section</h2>
@@ -48,17 +52,12 @@ const Review = () => {
         style={{ backgroundColor: "rgb(243,244,246)" }}
         className="card w-96 bg-neutral text-neutral-content"
       >
-        <div className="card-body items-center text-center">
-          <h2 className="card-title">Cookies!</h2>
-          <div style={{ color: "rgb(240,195,2)" }} className="flex text-3xl">
-            <FaStar></FaStar>
-            <FaStar></FaStar>
-            <FaStar></FaStar>
-            <FaStar></FaStar>
-            <FaStarHalfAlt></FaStarHalfAlt>
-          </div>
-          <p>We are using cookies for no reason.</p>
-        </div>
+    <div>
+    {
+
+    }
+    </div>
+    <ReviewById></ReviewById>
       </div>
 
       {user?.uid ? (
