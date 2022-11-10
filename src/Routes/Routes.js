@@ -9,6 +9,7 @@ import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import Myreview from '../Pages/Review/Myreview'
 import PrivateRoute from "./PrivateRoutes";
+import UpdateReview from "../Pages/Review/UpdateReview";
 
 export const routes=createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const routes=createBrowserRouter([
              {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/serviceslimit')
+                loader:()=>fetch('https://b6a11-service-review-server-side-inzamam-nur.vercel.app/serviceslimit')
              },
              {
                 path:'/login',
@@ -35,20 +36,20 @@ export const routes=createBrowserRouter([
              {
                 path:'/services',
                 element:<Services></Services>,
-                loader:()=>fetch('http://localhost:5000/services')
+                loader:()=>fetch('https://b6a11-service-review-server-side-inzamam-nur.vercel.app/services')
 
              },
              {
                 path:'/services/:id',
                 element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-inzamam-nur.vercel.app/services/${params.id}`)
 
 
              },
              {
                path:'/services',
                element:<Services></Services>,
-               loader:()=>fetch('http://localhost:5000/services')
+               loader:()=>fetch('https://b6a11-service-review-server-side-inzamam-nur.vercel.app/services')
 
             },
              {
@@ -59,6 +60,13 @@ export const routes=createBrowserRouter([
              {
                path:'/myreview',
                element:<Myreview></Myreview>
+            
+            },
+             {
+               path:'/review/:id',
+               element:<UpdateReview></UpdateReview>,
+               loader:({params})=>fetch(`https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/review/${params.id}`)
+
             
             }
         ]

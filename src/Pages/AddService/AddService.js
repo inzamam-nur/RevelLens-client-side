@@ -22,7 +22,7 @@ const AddService = () => {
     details,
    };
 
-   fetch("http://localhost:5000/service", {
+   fetch("https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",

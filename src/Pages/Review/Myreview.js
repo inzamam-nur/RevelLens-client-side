@@ -7,13 +7,25 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Myreview = () => {
-  const { user } = useContext(AuthContext);
-  const [reviews, setreviews] = useState([]);
+  const { user,logout} = useContext(AuthContext);
+  const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setreviews(data));
-  }, [user?.email]);
+    fetch(`https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/reviews?email=${user?.email}`,
+    {
+      headers:{
+        authorization:`Bearer ${localStorage.getItem('Photography-token')}`
+      }
+    })
+    .then(res => {
+      if (res.status === 401 || res.status === 403) {
+          return logout();
+      }
+      return res.json();
+  })
+  .then(data => {
+    setReviews(data);
+  })
+}, [user?.email, logout])
 
   //delete review
   const handleDelete = (id) => {
@@ -21,7 +33,7 @@ const Myreview = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -29,9 +41,9 @@ const Myreview = () => {
           console.log(data);
           if (data.deletedCount > 0) {
             // alert("deleted successfully");
-            toast("Successfully Deleted !!!");
+            toast("Wow so easy!");
             const remaining = reviews.filter((rev) => rev._id !== id);
-            setreviews(remaining);
+            setReviews(remaining);
           }
         });
     }

@@ -1,52 +1,32 @@
+import React from "react";
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/Authprovider/Authprovider";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-const Review = ({setReload}) => {
-  const { _id, title, price,image_url} = useLoaderData();
+
+const UpdateReview = () => {
   const { user } = useContext(AuthContext);
-  const handleReview = (event) => {
+  const reviews = useLoaderData();
+  const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = user?.email || "unregistered";
     const message = form.message.value;
-
-    const review = {
-      service: _id,
-      serviceName: title,
-      price,
-      service_img: image_url,
-      customer: user?.displayName,
-      img: user?.photoURL,
-      email,
-      message,
-      myDate : new Date()
-    };
-
-    fetch("https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/reviews", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          toast("Review added successfully");
-          form.reset();
-          setReload(data);
-        }
+    console.log(message);
+    
+    fetch(`https://b6a11-service-review-server-side-inzamam-inzamamnur14-gmailcom.vercel.app/review/${reviews._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ message}),
       })
-      .catch((er) => console.error(er));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          alert('updated')
+  
+        });
 
-
-
-     
   };
-
   return (
     <div>
       <h2>This review section</h2>
@@ -55,12 +35,7 @@ const Review = ({setReload}) => {
         style={{ backgroundColor: "rgb(243,244,246)" }}
         className="card w-96 bg-neutral text-neutral-content"
       >
-    <div>
-    {
-
-    }
-    </div>
-    
+        <div>{}</div>
       </div>
 
       {user?.uid ? (
@@ -68,7 +43,7 @@ const Review = ({setReload}) => {
           {" "}
           <div class="flex items-center justify-center p-12">
             <div class="mx-auto w-full max-w-[550px]">
-              <form onSubmit={handleReview}>
+              <form onSubmit={handleUpdate}>
                 <div class="mb-5">
                   <label
                     for="email"
@@ -106,8 +81,6 @@ const Review = ({setReload}) => {
                   <button class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
                     Submit
                   </button>
-                  <ToastContainer />
-
                 </div>
               </form>
             </div>
@@ -136,4 +109,4 @@ const Review = ({setReload}) => {
   );
 };
 
-export default Review;
+export default UpdateReview;

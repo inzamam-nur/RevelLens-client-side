@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
+        <div style={{paddingTop:'100px'}}>
        <footer className="footer footer-center p-10 bg-gray-100 text-base-content rounded">
   <div className="grid grid-flow-col gap-4">
     <Link className="link link-hover">About us</Link> 
@@ -19,7 +19,7 @@ const Footer = () => {
     </div>
   </div> 
   <div>
-    <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+    <p>Copyright © 2022 - All right reserved by RevelLens</p>
   </div>
 </footer>
         </div>

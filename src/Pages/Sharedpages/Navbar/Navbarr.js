@@ -41,12 +41,18 @@ const Navbarr = () => {
             <li>
               <Link to="/services">Services</Link>
             </li>
-            <li>
-              <Link to="/addservice">Add Service</Link>
-            </li>
-            <li>
-              <Link to="/myreview">Myreview</Link>
-            </li>
+            {user?.uid ? (
+            <>
+              <li>
+                <Link to="/addservice">Add Service</Link>
+              </li>
+              <li>
+                <Link to="/myreview">Myreview</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
           </ul>
         </div>
         <Link to="/" className=" normal-case text-xl p-0  ">

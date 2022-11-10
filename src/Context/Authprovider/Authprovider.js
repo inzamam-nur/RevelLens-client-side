@@ -24,11 +24,12 @@ const Authprovider = ({children}) => {
 
         return createUserWithEmailAndPassword(auth, email, password);
       };
-    const logout = () => {
-      setLoading(true);
+      const logout = () =>{
+        setLoading(true);
 
+        localStorage.removeItem('Photography-token');
         return signOut(auth);
-      };
+    }
       useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
           setLoading(false);
